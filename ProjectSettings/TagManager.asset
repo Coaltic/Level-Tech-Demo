@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Checkpoint
   - Killbox
+  - Collectable
+  - Teleporter1
+  - Teleporter2
+  - Ball
+  - BallTrigger
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

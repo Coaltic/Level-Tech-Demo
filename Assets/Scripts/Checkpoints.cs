@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Checkpoints : MonoBehaviour
-{    
+{
     //public GameObject respawnLocation;
     //Vector3 winner = new Vector3(-1.8f, 7.0f, -75.0f);
     //public GameObject canvas;
+
+    public AudioSource killboxSound;
+    public AudioSource checkpointSound;
+    
+
     Vector3 originalPosition;
     Quaternion forward;
 
@@ -32,6 +37,7 @@ public class Checkpoints : MonoBehaviour
             Debug.Log("About to reset player");
             //gameObject.GetComponent<CharacterController>().Move(respawnLocation);
             //gameObject.transform.position = new Vector3(0, 1, 0);
+            killboxSound.Play();
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
             this.gameObject.transform.position = originalPosition;
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
@@ -41,6 +47,7 @@ public class Checkpoints : MonoBehaviour
         }
         else if (other.tag == "Checkpoint")
         {
+            checkpointSound.Play();
             originalPosition = gameObject.transform.position;
 
             //gameObject.transform.position = originalPosition;

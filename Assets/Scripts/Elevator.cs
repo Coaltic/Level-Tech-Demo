@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    public float speed;
+    public float speed = 3.0f;
     public bool elevatorUp = false;
     public bool elevatorDown = false;
+
+    public AudioSource sound;
 
     public GameObject lift;
     public Vector3 elevatorTop;
@@ -27,9 +29,11 @@ public class Elevator : MonoBehaviour
         {
             if (elevatorUp == true)
             {
+                
                 lift.transform.Translate(Vector3.up * speed * Time.deltaTime);
+                
 
-                if (lift.transform.position.y > elevatorMax.y)
+                if (lift.transform.position.y >= elevatorTop.y)
                 {
                     Debug.Log("triggered");
                     elevatorUp = false;
@@ -57,6 +61,7 @@ public class Elevator : MonoBehaviour
     {
 
         elevatorUp = true;
+        sound.Play();
 
     }
 
@@ -64,7 +69,7 @@ public class Elevator : MonoBehaviour
     {
 
 
-        elevatorDown = true;
+        //elevatorDown = true;
 
 
 

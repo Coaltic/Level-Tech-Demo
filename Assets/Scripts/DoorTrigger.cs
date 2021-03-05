@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class DoorTrigger : MonoBehaviour
 {
     public float speed = 3.0f;
     public bool doorOpening = false;
     public bool doorClosing = false;
+
+    public AudioSource sound;
 
     public GameObject door;
     public Vector3 doorOpen;
@@ -15,6 +17,8 @@ public class Door : MonoBehaviour
     public Vector3 doorOpeningPosition;
     public Vector3 openPosition;
     public Vector3 closedPosition;
+
+    public AudioSource doorSound;
 
 
 
@@ -65,6 +69,7 @@ public class Door : MonoBehaviour
     {
         
         doorOpening = true;
+        sound.Play();
 
     }
 
@@ -73,8 +78,9 @@ public class Door : MonoBehaviour
         
 
         doorClosing = true;
+        sound.Play();
 
-        
-       
+
+
     }
 }
